@@ -2,6 +2,10 @@
 
 **Hackshastra** is a web-based platform for students to form teams for hackathons and competitions.
 
+### **🌐 Live Demo**  
+🔗 [Healthcare+](http://healthcareplus.infinityfreeapp.com/)  
+
+
 ## 📌 Features
 
 - 📝 **Student Registration & Login**
