@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f0f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            color: #2a9d8f;
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        select,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .resume {
+            display: none;
+            margin-top: 40px;
+            background: linear-gradient(rgb(124, 215, 233), rgb(158, 240, 170), rgb(237, 244, 237));
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .resume h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .resume-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .resume-text {
+            flex: 1;
+        }
+        .resume p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Generator</h1>
+        <form id="resume-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="profile-pic">Profile Picture:</label>
+            <input type="file" id="profile-pic" name="profile-pic" accept="image/*" required>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="education">Education:</label>
+            <input type="text" id="education" name="education" required>
+            <label for="skills">Skills:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skill1" name="skills" value="HTML">
+                    <label for="skill1">HTML</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skill2" name="skills" value="CSS">
+                    <label for="skill2">CSS</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skill3" name="skills" value="JavaScript">
+                    <label for="skill3">JavaScript</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skill4" name="skills" value="Python">
+                    <label for="skill4">Python</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skill5" name="skills" value="Java">
+                    <label for="skill5">Java</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skill6" name="skills" value="React">
+                    <label for="skill6">React</label>
+                </div>
+            </div>
+            <label>Language Proficiency (1-100):</label>
+            <label for="hindi">Hindi:</label>
+            <input type="range" id="hindi" name="hindi" min="1" max="100" value="50">
+            <label for="english">English:</label>
+            <input type="range" id="english" name="english" min="1" max="100" value="50">
+            <label for="marathi">Marathi:</label>
+            <input type="range" id="marathi" name="marathi" min="1" max="100" value="50">
+            <label for="kannada">Kannada:</label>
+            <input type="range" id="kannada" name="kannada" min="1" max="100" value="50">
+            <button type="button" class="submit-btn" onclick="generateResume()">Generate Resume</button>
+        </form>
+        <div class="resume" id="resume">
+            <h2>Resume</h2>
+            <div class="resume-content">
+                <img id="r-profile-pic" class="profile-pic" src="#" alt="Profile Picture">
+                <div class="resume-text">
+                    <p><strong>Name:</strong> <span id="r-name"></span></p>
+                    <p><strong>Email:</strong> <span id="r-email"></span></p>
+                    <p><strong>Phone:</strong> <span id="r-phone"></span></p>
+                    <p><strong>Gender:</strong> <span id="r-gender"></span></p>
+                    <p><strong>Education:</strong> <span id="r-education"></span></p>
+                    <p><strong>Skills:</strong> <span id="r-skills"></span></p>
+                    <p><strong>Language Proficiency:</strong></p>
+                    <ul>
+                        <li><strong>Hindi:</strong> <span id="r-hindi"></span></li>
+                        <li><strong>English:</strong> <span id="r-english"></span></li>
+                        <li><strong>Marathi:</strong> <span id="r-marathi"></span></li>
+                        <li><strong>Kannada:</strong> <span id="r-kannada"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function generateResume() {
+            const form = document.getElementById('resume-form');
+            if (!form.checkValidity()) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gender = document.getElementById('gender').value;
+            const education = document.getElementById('education').value;
+            const skills = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(skill => skill.value).join(', ');
+            const hindi = document.getElementById('hindi').value;
+            const english = document.getElementById('english').value;
+            const marathi = document.getElementById('marathi').value;
+            const kannada = document.getElementById('kannada').value;
+            const profilePicInput = document.getElementById('profile-pic');
+            const profilePic = document.getElementById('r-profile-pic');
+            if (profilePicInput.files && profilePicInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    profilePic.src = e.target.result;
+                }
+                reader.readAsDataURL(profilePicInput.files[0]);
+            }
+            document.getElementById('r-name').innerText = name;
+            document.getElementById('r-email').innerText = email;
+            document.getElementById('r-phone').innerText = phone;
+            document.getElementById('r-gender').innerText = gender;
+            document.getElementById('r-education').innerText = education;
+            document.getElementById('r-skills').innerText = skills;
+            document.getElementById('r-hindi').innerText = hindi;
+            document.getElementById('r-english').innerText = english;
+            document.getElementById('r-marathi').innerText = marathi;
+            document.getElementById('r-kannada').innerText = kannada;
+            document.getElementById('resume').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

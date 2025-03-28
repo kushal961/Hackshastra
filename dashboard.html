@@ -1,0 +1,146 @@
+<?php
+// Start the session
+session_start();
+
+// Redirect to login if not logged in
+if (!isset($_SESSION['student_id'])) {
+    header("Location: login.php");
+    exit();  // Make sure the script stops executing after the redirect
+}
+
+// Fetch the student data from the database
+$student_id = $_SESSION['student_id'];
+$sql = "SELECT * FROM students WHERE student_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $student_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    // Fetch student data
+    $student_data = $result->fetch_assoc();
+    $student_name = $student_data['name'];
+    $student_skills = $student_data['skills'];
+    $student_interests = $student_data['interests'];
+    $student_github = $student_data['github'];
+} else {
+    // Handle case where no data found (this shouldn't happen if login works correctly)
+    echo "No student data found.";
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesd.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1 id="wc">Welcome, <?php echo $student_name; ?> at HACKSHASTRA! 👋</h1>
+    <p id="wc2">Your space for collaboration, learning, and updates.</p>
+  </header>
+
+  <main class="dashboard-main">
+    <!-- Left Column -->
+    <section class="left-column">
+      <!-- Notifications -->
+      <div class="notifications">
+        <h2>Notifications 🔔</h2>
+        <ul>
+          <li class="listy">New message from your teammate about "Hackathon X".</li>
+          <li class="listy">Team request approved for "AI Challenge".</li>
+          <li class="listy">Reminder: Competition deadline in 3 days.</li>
+        </ul>
+      </div>
+
+      <!-- Profile Summary -->
+      <div class="profile-summary">
+        <h2>Your Profile 🌟</h2>
+        <div class="profile-card">
+          <img src="freelancer.png" id="pic" alt="Profile Picture">
+          <div class="profile-info">
+            <p><strong>Name:</strong> <?php echo $student_name; ?></p>
+            <p><strong>Skills:</strong> <?php echo $student_skills; ?></p>
+            <p><strong>Interests:</strong> <?php echo $student_interests; ?></p>
+            <a href="<?php echo $student_github; ?>" target="_blank">View GitHub Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column -->
+    <section class="right-column">
+      <!-- Team Requests -->
+      <div class="team-requests">
+        <h2>Your Team Requests 📋</h2>
+        <div class="request-card">
+          <p><strong>Competition:</strong> Hackathon X</p>
+          <p><strong>Status:</strong> 3/5 Members</p>
+          <button class="request-btn">Edit</button>
+          <button class="request-btn">View Team</button>
+          <button class="request-btn">Close</button>
+        </div>
+        <div class="request-card">
+          <p><strong>Competition:</strong> AI Challenge</p>
+          <p><strong>Status:</strong> 4/6 Members</p>
+          <button class="request-btn">Edit</button>
+          <button class="request-btn">View Team</button>
+          <button class="request-btn">Close</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons (Post Team Request & Manage Teams) -->
+      <div class="action-buttons">
+        <h2>Team Formation Actions</h2>
+        <a href="post-team-request.html">
+          <button class="action-btn">Post Team Request</button>
+        </a>
+        <a href="manage-teams.html">
+          <button class="action-btn">Manage Teams</button>
+        </a>
+      </div>
+
+      <!-- Community Q&A -->
+      <div class="community">
+        <h2>Community Q&A 💬</h2>
+        <div class="question">
+          <p><strong>Q:</strong> How to prepare for a 24-hour hackathon?</p>
+          <p><strong>Answer:</strong> Plan your ideas, delegate tasks, and take short breaks!</p>
+        </div>
+        <div class="question">
+          <p><strong>Q:</strong> What are the best resources to learn React?</p>
+          <p><strong>Answer:</strong> Check out the official docs, Scrimba, and YouTube tutorials!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="ilustrate">
+    <img src="reg22.png" alt="Illustration" id="im4"/>
+    <img src="teamup11.png" alt="Illustration" id="im3" />
+    <img src="dashim22.png" alt="Illustration" id="im5" />
+    <img src="dashim33.png" alt="Illustration" id="im6" />
+  </div>
+
+  <div class="text">
+    <h4>REGISTER</h4> 
+    <h4>TEAMUP</h4> 
+    <h4>COMPETE</h4> 
+    <h4>WIN</h4> 
+  </div>
+
+  <footer class="dashboard-footer">
+    <p>&copy; 2024 Collaboration Platform. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#" target="_blank">🔗 LinkedIn</a>
+      <a href="#" target="_blank">🐦 Twitter</a>
+      <a href="#" target="_blank">📂 GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>

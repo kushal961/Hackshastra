@@ -1,0 +1,274 @@
+/* Body and general layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* Header Styling */
+  .dashboard-header {
+    background-color: #0073e6;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #wc {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  #wc2 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #e1e1e1;
+  }
+  
+  /* Main Content Layout */
+  .dashboard-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .left-column, .right-column {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .section {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .section h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Profile Card Styling */
+.profile-card {
+  background-color: #e6ffe3;
+  padding: 20px;
+  
+  border-radius: 8px;
+  box-shadow: 4px 4px 20px rgb(185, 183, 183);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:600px;
+  
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-info {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.profile-info p {
+  margin: 10px 0;
+}
+
+.profile-info a {
+  display: block;
+  margin-top: 10px;
+  color: #0073e6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-info a:hover {
+  text-decoration: underline;
+}
+
+.profile-image {
+  flex-shrink: 0;
+  width: 120px; /* Adjust size as needed */
+  height: 120px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #f04e4e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #d43c3c;
+}
+
+  
+  /* Button Styling */
+  .action-btn {
+    display: inline-block;
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .action-btn:hover {
+    background-color: #005bb5;
+  }
+  
+  .logout-btn {
+    background-color: #ff4444;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .logout-btn:hover {
+    background-color: #cc0000;
+  }
+  
+  /* Illustration Styling */
+/* Advertisement Section */
+.advertisement {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+  }
+
+  .advertisement .illustration{
+     width:700px;
+     height:;
+     object-fit: contain;
+  }
+  
+  /* Flex container for image and text */
+  .advertisement-content {
+    display: flex;
+    justify-content: space-between; /* Space between the image and text */
+    align-items: center; /* Center align the content vertically */
+    gap: 20px; /* Space between image and text */
+    margin-top: 20px;
+  }
+
+
+  
+  
+  /* Left side: Image */
+  .illustration img {
+    width: 108%; /* Adjust the width of the image */
+    height: 260px; /* Keep the height as per your requirement */
+    object-fit: contain; /* Ensures the image fills the container without distortion */
+    border-radius: 8px; /* Optional: rounded corners */
+    
+  }
+  
+
+
+  /* Right side: Textual Information */
+  .advertisement-text {
+    width: 45%; /* Adjust the width of the text section */
+  }
+  
+  .advertisement-text h4 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .advertisement-text p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .advertisement-text ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .advertisement-text ul li {
+    background-color: #e0f7fa;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  
+  .advertisement-text ul li:hover {
+    background-color: #b2ebf2;
+  }
+  
+  
+  /* Footer Styling */
+  .dashboard-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0073e6;
+    color: white;
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    text-decoration: underline;
+  }
+  
+
+  .mentorship-networking{
+          
+           border:2px solid black;
+  }
+
+  .skill-development{
+    background-color: rgb(248, 248, 217);
+  }
+
+  .career-guidance{
+    background-color: rgb(238, 224, 240);
+    
+  }
+
+
+  .team-actions{
+    background-color: #e3f4fc;
+  }
+  .clas2{
+    background-color: #e3dce5e3;
+  }
+
+
+
+
+ 

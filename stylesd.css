@@ -1,0 +1,199 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+
+
+
+
+
+h1, h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+#wc {
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+  color: rgb(255, 254, 198);
+}
+
+#wc2 {
+  font-family: "Stylish", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+  font-size: 18px;
+}
+
+/* Header */
+.dashboard-header {
+  background-color: #a378e8;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Dashboard Layout */
+.dashboard-main {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 40px; /* Increased gap between left and right columns */
+  margin: 40px;
+}
+
+/* Left Column Sections */
+.left-column .notifications,
+.left-column .profile-summary {
+  background: rgb(255, 254, 198);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+/* Right Column Sections */
+.right-column .team-requests,
+.right-column .community,
+.right-column .action-buttons {
+  background: rgb(255, 254, 198);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  text-align: center;
+}
+
+.action-buttons h2 {
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  background-color: #a378e8;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #674ab7;
+  transform: scale(1.05);
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 5px;
+  background: rgba(251, 209, 59, 0.858);
+  color: rgb(0, 0, 0);
+  border-radius: 20px 20px 0 0;
+}
+
+.social-icons a {
+  color: rgb(12, 5, 5);
+  margin: 0 15px;
+}
+
+.social-icons a:hover {
+  text-decoration: underline;
+}
+
+.listy {
+  list-style: none;
+}
+
+/* Images */
+#im3, #im4, #im5, #im6 {
+  height: 250px;
+  width: 290px;
+}
+
+/* Illustrations */
+#ilustrate {
+  display: flex;
+  gap: 60px;
+  margin-left: 170px;
+  margin-right: auto;
+}
+
+.text {
+  display: flex;
+  gap: 290px;
+  margin-left: 280px;
+  margin-right: auto;
+}
+
+h4 {
+  font-family: "poppins";
+}
+
+
+/* Button Styles for Team Requests */
+.request-btn {
+  background-color: #a378e8;
+  width:200px;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.request-btn:hover {
+  background-color: #674ab7;
+  transform: scale(1.05);
+}
+
+/* Card Style for Team Requests */
+.request-card {
+  background-color: #fff;
+  width:600px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.request-card p {
+  margin: 5px 0;
+}
+
+#pic{
+  height:90px;
+  width:100px;
+}
+.logout {
+  background-color: #ff7043;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 8px;
+  color:azure;
+}
+
+a {
+text-decoration: none;
+color: #000000;
+}

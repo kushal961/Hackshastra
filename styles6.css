@@ -1,0 +1,16 @@
+button.btn-success {
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+  
+  button.btn-success:hover {
+    background-color: #218838;
+  }
+  
+  button.btn-success:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
