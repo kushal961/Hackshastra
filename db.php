@@ -1,9 +1,9 @@
 <?php
 // Database credentials
-$host = 'localhost'; // Database host
+$host = 'mysql.railway.internal'; // Database host
 $username = 'root'; // Database username
-$password = ''; // Database password (default is empty for XAMPP)
-$database = 'hacksh1'; // Database name
+$password = 'McScSfaPFZOhUxwQlTXliSQLefbwFczg'; // Database password (default is empty for XAMPP)
+$database = 'railway'; // Database name
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);
